@@ -1,7 +1,11 @@
 const express = require("express");
-const router = express.Router();
+//  importing express library to perform some express function
+//  operation
+const router = express.Router(); // Router for exporting
+//  the funtion,objects,etc
 const bcrypt = require("bcrypt"); // For password hashing
-const User = require("../models/user"); //    Ass-uming you have a User model
+const User = require("../models/user");
+//  Ass-uming you have a User model
 
 router.post("/register", async (req, res) => {
   try {
