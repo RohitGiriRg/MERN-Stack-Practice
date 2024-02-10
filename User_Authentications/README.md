@@ -1,3 +1,20 @@
+Things i also need to work on here
+
+- JSON token i have created should be get store in cookies of the web browser and will be valid for few hours and can retrive to make sure that login and registration will happen securely
+- Store the JSON token as cookies
+
+- Also add the funtionality of forgetting the password and username, whenever users want
+
+- Use verify() method to verify the token we get if from.
+
+- Also try to implement, OTP funtionality for more security
+
+- Also try to implement login with google using MERN stack not firebase.
+
+- Also try to implement email, phone number, verification system while login.
+
+- Also create login page which have validation in the front end (client)
+
 Task :
 
 ##User Authentication

@@ -1,18 +1,34 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const parser = require("body-parser");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
 const port = 5000;
 
-// Creating Database
+app.use(cors());
+app.use(bodyParser.json());
+
 mongoose.connect("mongodb://localhost:27017/collectionTodo");
 
-// creating mongodb schema
 const todoData = new mongoose.Schema({
   title: String,
   description: String,
 });
 
-const createTodo = mongoose.model("collectionTodo", todoData);
+const Todo = mongoose.model("particularData", todoData);
+
+// Creating Todo
+app.post("/api/todos", async (req, res) => {
+  try {
+    const { title, description } = req.body;
+
+    const newTodo = new Todo({ title, description });
+    await newTodo.save();
+
+    res.json(newTodo);
+  } catch (error) {
+    // console.log(error);
+    res.status(500).json({ error: error.message });
+  }
+});
