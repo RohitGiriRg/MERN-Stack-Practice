@@ -32,3 +32,7 @@ app.post("/api/todos", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+app.listen(port, () => {
+  console.log(`your server is running on port ${port}`);
+});
