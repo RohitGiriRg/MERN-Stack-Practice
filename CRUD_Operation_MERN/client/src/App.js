@@ -1,30 +1,66 @@
-import { useEffect, useState } from "react";
-import "./App.css";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function App() {
-  const [todo, setTodo] = useState([]);
+  const [todos, setTodos] = useState([]);
+  const [newTodo, setNewTodo] = useState({ title: "", description: "" });
 
   useEffect(() => {
+    // Fetch all todos on component mount
     axios
-      .get("http://127.0.0.1:5000/api/todos")
-      .then((response) => setTodo(response.data))
-      .catch((error) => console.log("Error fetching data :", error));
+      .get("http://localhost:5000/api/todos")
+      .then((response) => setTodos(response.data))
+      .catch((error) => console.error("Error fetching todos:", error));
   }, []);
 
+  const handleInputChange = (e) => {
+    setNewTodo({ ...newTodo, [e.target.name]: e.target.value });
+  };
+
+  const handleAddTodo = () => {
+    axios
+      .post("http://localhost:5000/api/todos", newTodo)
+      .then((response) => {
+        setTodos([...todos, response.data]);
+        setNewTodo({ title: "", description: "" });
+      })
+      .catch((error) => console.error("Error adding todo:", error));
+  };
+
+  const handleDeleteTodo = (id) => {
+    axios
+      .delete(`http://localhost:5000/api/todos/${id}`)
+      .then(() => setTodos(todos.filter((todo) => todo._id !== id)))
+      .catch((error) => console.error("Error deleting todo:", error));
+  };
+
   return (
-    <div className="App">
+    <div>
+      <h1>To-Do List</h1>
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo._id}>
+            <strong>{todo.title}</strong> - {todo.description}
+            <button onClick={() => handleDeleteTodo(todo._id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
       <div>
-        {todo.map((todo) => {
-          return (
-            <div>
-              <h4>{todo._id}</h4>
-              <h3>{todo.title}</h3>
-              <p>{todo.description}</p>
-              <hr />
-            </div>
-          );
-        })}
+        <input
+          type="text"
+          name="title"
+          placeholder="Title"
+          value={newTodo.title}
+          onChange={handleInputChange}
+        />
+        <input
+          type="text"
+          name="description"
+          placeholder="Description"
+          value={newTodo.description}
+          onChange={handleInputChange}
+        />
+        <button onClick={handleAddTodo}>Add Todo</button>
       </div>
     </div>
   );
