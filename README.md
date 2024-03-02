@@ -1,5 +1,8 @@
 **_Mern Practical task :-_**
 
+#### These are some practise project i found interesting and need to do practise a lot. 
+#### if i am missing something here, Please free to add more practice task in the README. Or Message me via email rohitgirirg7027@gmail.com
+
 1. **User Authentication:**
 
    - Implement user authentication using JWT (JSON Web Tokens) for secure authentication.
@@ -61,5 +64,3 @@
     - Ensure that environment variables are securely handled, and the application runs smoothly in a production environment.
 
 
-#### These are some practise project i found interesting and need to do practise a lot. 
-#### if i am missing something here, Please free to add more practice task in the README. Or Message me via email rohitgirirg7027@gmail.com
