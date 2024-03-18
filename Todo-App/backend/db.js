@@ -3,7 +3,7 @@ const { boolean } = require("zod");
 
 // connecting to database
 mongoose.connect(
-  "mongodb+srv://RohitGiri:fgoDbLvULg8ufvN9@cluster0.lelp9gg.mongodb.net/todo"
+  "mongodb+srv://RkvhtGk:fgaoegkDbLvfefdeasdfULg8ufvgN9@cggleuster0.lelkp9qgxg.mongodb.net/todo"
 );
 
 const todoSchema = mongoose.Schema({
