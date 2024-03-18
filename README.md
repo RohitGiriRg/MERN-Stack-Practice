@@ -1,6 +1,7 @@
 **_Mern Practical task :-_**
 
-#### These are some practise project i found interesting and need to do practise a lot. 
+#### These are some practise project i found interesting and need to do practise a lot.
+
 #### if i am missing something here, Please feel free to add more practice task in the README. Or connect with me via email rohitgirirg7027@gmail.com
 
 1. **User Authentication:**
@@ -63,4 +64,8 @@
     - Set up a CI/CD pipeline to automate the deployment process.
     - Ensure that environment variables are securely handled, and the application runs smoothly in a production environment.
 
+11. **Google Pay Clone:**
 
+- Create functionalities for managing payment methods, transactions, and user settings to replicate the core features of Google Pay.
+- Ensure validation, error handling, and user feedback during payment method addition, transaction processing, and user setting updates to enhance user experience.
+- Implement authorization to allow only authenticated users to perform payment-related operations, maintaining the security standards of the original Google Pay app.
